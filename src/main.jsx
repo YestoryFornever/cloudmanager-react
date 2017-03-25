@@ -30,6 +30,7 @@ class Hello extends React.Component{
 				<select defaultValue={this.state.selectValue}>
 					<option defaultValue='1'>one</option>
 				</select><br/>
+				{/*处理radio／checkbox最好还是用onchange*/}
 				<label htmlFor='a'>a</label>
 				<input id='a' type='radio' defaultValue={this.state.radioValue} /><br/>
 				<label htmlFor='x'>x</label>
