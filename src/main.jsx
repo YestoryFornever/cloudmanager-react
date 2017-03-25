@@ -13,6 +13,7 @@ class Hello extends React.Component{
 			titleMessage:'世界你好！',
 			curTime:new Date()
 		};
+		this.myClick = this.myClick.bind(this);
 	}
 	componentDidMount(){
 		this.timerId = setInterval(()=>{
@@ -25,7 +26,8 @@ class Hello extends React.Component{
 	render(){
 		return (<div>
 			<h1>{this.state.titleMessage}</h1>
-			<h2>It is {this.state.curTime.toLocaleTimeString()}.</h2>
+			<button onClick={this.myClick} type="button">toggle</button>
+			<h2 style={{display:this.state.isVisible?'block':'none'}}>It is {this.state.curTime.toLocaleTimeString()}.</h2>
 			<SubMessage abc="a"/>
 			<SubMessage abc="b"/>
 			<SubMessage abc="c"/>
@@ -34,6 +36,11 @@ class Hello extends React.Component{
 	tick(){
 		this.setState({
 			curTime:new Date()
+		});
+	}
+	myClick(){
+		this.setState({
+			isVisible:!this.state.isVisible
 		});
 	}
 };
