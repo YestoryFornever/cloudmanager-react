@@ -15,30 +15,26 @@ class Hello extends React.Component{
 			checkboxValue:'x',
 			textareaValue:'textarea value...'
 		};
-		this.updateInput = this.updateInput.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleSubmit(e){
 		e.preventDefault();
 		console.log(e);
-	}
-	updateInput(e){
-		this.setState({
-			inputValue:e.target.value
-		});
+		console.log(this.refs['refInput'].value);
 	}
 	render(){
 		return (<div>
 			<SubMessage messages={this.state.messages}/>
 			<form onSubmit={this.handleSubmit}>
-				<input onChange={this.updateInput} value={this.state.inputValue}/><br/>
-				<select value={this.state.selectValue}>
-					<option value='1'>one</option>
+				<input ref='refInput' defaultValue={this.state.inputValue}/><br/>
+				<select defaultValue={this.state.selectValue}>
+					<option defaultValue='1'>one</option>
 				</select><br/>
 				<label htmlFor='a'>a</label>
-				<input id='a' type='radio' value={this.state.radioValue} /><br/>
+				<input id='a' type='radio' defaultValue={this.state.radioValue} /><br/>
 				<label htmlFor='x'>x</label>
-				<input id='x' type='checkbox' value={this.state.checkboxValue}/><br/>
-				<textarea value={this.state.textareaValue}></textarea><br/>
+				<input id='x' type='checkbox' defaultValue={this.state.checkboxValue}/><br/>
+				<textarea defaultValue={this.state.textareaValue}></textarea><br/>
 				<button type='submit'>submit</button>
 			</form>
 		</div>);
