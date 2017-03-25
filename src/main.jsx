@@ -10,13 +10,14 @@ class Hello extends React.Component{
 		super(props);
 		this.state = {
 			isVisible:true,
-			titleMessage:'世界你好！'
+			titleMessage:'世界你好！',
+			curTime:this.props.curTime
 		};
 	}
 	render(){
 		return (<div>
 			<h1>{this.state.titleMessage+this.props.name+this.props.class}</h1>
-			<h2>It is {this.props.curTime.toLocaleTimeString()}.</h2>
+			<h2>It is {this.state.curTime.toLocaleTimeString()}.</h2>
 			<SubMessage abc="a"/>
 			<SubMessage abc="b"/>
 			<SubMessage abc="c"/>
