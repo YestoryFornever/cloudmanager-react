@@ -11,22 +11,33 @@ class Hello extends React.Component{
 		this.state = {
 			isVisible:true,
 			titleMessage:'世界你好！',
-			curTime:this.props.curTime
+			curTime:new Date()
 		};
+	}
+	componentDidMount(){
+		this.timerId = setInterval(()=>{
+			this.tick();
+		},1000);
+	}
+	componentWillMount(){
+		clearInterval(this.timerId);
 	}
 	render(){
 		return (<div>
-			<h1>{this.state.titleMessage+this.props.name+this.props.class}</h1>
+			<h1>{this.state.titleMessage}</h1>
 			<h2>It is {this.state.curTime.toLocaleTimeString()}.</h2>
 			<SubMessage abc="a"/>
 			<SubMessage abc="b"/>
 			<SubMessage abc="c"/>
 		</div>);
 	}
+	tick(){
+		this.setState({
+			curTime:new Date()
+		});
+	}
 };
 
-setInterval(()=>{
-	ReactDOM.render(<Hello name="xxx" class="yyy" curTime={new Date()}/>,document.getElementById('app'),()=>{
-		console.log('渲染完成了！');
-	});
-},1000);
+ReactDOM.render(<Hello/>,document.getElementById('app'),()=>{
+	console.log('渲染完成了！');
+});
