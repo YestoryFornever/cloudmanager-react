@@ -12,6 +12,9 @@ module.exports = {
 	entry:{
 		bundle:'./src/main.jsx'
 	},//入口文件
+	resolve: {
+		extensions: ['.js', '.jsx']
+	},
 	output:{
 		path:path.resolve(__dirname,'dist'),//输出文件目录（__dirname指的是当前目录）
 		filename:'./[name].js'//打包后文件名对应entry中的key名:e.g. bundle
