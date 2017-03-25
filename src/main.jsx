@@ -9,27 +9,38 @@ class Hello extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			messages:[
-				'你好！',
-				'谢谢！',
-				'再见！'
-			],
-			num:0
+			inputValue:'input value...',
+			selectValue:'1',
+			radioValue:'a',
+			checkboxValue:'x',
+			textareaValue:'textarea value...'
 		};
-		this.countNum = this.countNum.bind(this);
+		this.updateInput = this.updateInput.bind(this);
 	}
-	countNum(e){
+	handleSubmit(e){
+		e.preventDefault();
+		console.log(e);
+	}
+	updateInput(e){
 		this.setState({
-			num:++this.state.num
+			inputValue:e.target.value
 		});
-		console.log(e);//被react封装的event
-		console.log(e.nativeEvent);//原本的event
 	}
 	render(){
 		return (<div>
-			<button onClick={this.countNum}>count</button>
-			<p>{this.state.num}</p>
 			<SubMessage messages={this.state.messages}/>
+			<form onSubmit={this.handleSubmit}>
+				<input onChange={this.updateInput} value={this.state.inputValue}/><br/>
+				<select value={this.state.selectValue}>
+					<option value='1'>one</option>
+				</select><br/>
+				<label htmlFor='a'>a</label>
+				<input id='a' type='radio' value={this.state.radioValue} /><br/>
+				<label htmlFor='x'>x</label>
+				<input id='x' type='checkbox' value={this.state.checkboxValue}/><br/>
+				<textarea value={this.state.textareaValue}></textarea><br/>
+				<button type='submit'>submit</button>
+			</form>
 		</div>);
 	}
 };
