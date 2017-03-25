@@ -6,12 +6,16 @@ import $ from 'jquery';
 import SubMessage from './component';
 
 class Hello extends React.Component{
-	clickMe(){
-		alert('你刚才点击了我！！');
+	constructor(){
+		super();
+		this.state = {
+			isVisible:true,
+			titleMessage:'世界你好！'
+		};
 	}
 	render(){
 		return (<div>
-			<h1 onClick={this.clickMe}>{this.props.name+this.props.class}</h1>
+			<h1>{this.state.titleMessage+this.props.name+this.props.class}</h1>
 			<SubMessage abc="a"/>
 			<SubMessage abc="b"/>
 			<SubMessage abc="c"/>
