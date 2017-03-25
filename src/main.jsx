@@ -6,8 +6,8 @@ import $ from 'jquery';
 import SubMessage from './component';
 
 class Hello extends React.Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
 			isVisible:true,
 			titleMessage:'世界你好！'
@@ -16,6 +16,7 @@ class Hello extends React.Component{
 	render(){
 		return (<div>
 			<h1>{this.state.titleMessage+this.props.name+this.props.class}</h1>
+			<h2>It is {new Date().toLocaleTimeString()}.</h2>
 			<SubMessage abc="a"/>
 			<SubMessage abc="b"/>
 			<SubMessage abc="c"/>
@@ -23,6 +24,8 @@ class Hello extends React.Component{
 	}
 };
 
-ReactDOM.render(<Hello name="xxx" class="yyy"/>,document.getElementById('app'),()=>{
-	console.log('渲染完成了！');
-});
+setInterval(()=>{
+	ReactDOM.render(<Hello name="xxx" class="yyy"/>,document.getElementById('app'),()=>{
+		console.log('渲染完成了！');
+	});
+},1000);
