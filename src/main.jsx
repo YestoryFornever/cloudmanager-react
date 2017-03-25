@@ -24,10 +24,11 @@ class Hello extends React.Component{
 		clearInterval(this.timerId);
 	}
 	render(){
+		let xxx = {display:this.state.isVisible?'block':'none'};
 		return (<div>
 			<h1>{this.state.titleMessage}</h1>
 			<button onClick={this.myClick} type="button">toggle</button>
-			<h2 style={{display:this.state.isVisible?'block':'none'}}>It is {this.state.curTime.toLocaleTimeString()}.</h2>
+			<h2 style={xxx}>It is {this.state.curTime.toLocaleTimeString()}.</h2>
 			<SubMessage abc="a"/>
 			<SubMessage abc="b"/>
 			<SubMessage abc="c"/>
