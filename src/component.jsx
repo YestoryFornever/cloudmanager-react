@@ -20,3 +20,6 @@ export default class SubMessage extends React.Component{
 	}
 }
 SubMessage.defaultProps = {messages: ['默认值']};
+SubMessage.propTypes = {
+	messages:React.PropTypes.array.isRequired,
+};

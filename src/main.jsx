@@ -14,10 +14,21 @@ class Hello extends React.Component{
 				'谢谢！',
 				'再见！'
 			],
+			num:0
 		};
+		this.countNum = this.countNum.bind(this);
+	}
+	countNum(e){
+		this.setState({
+			num:++this.state.num
+		});
+		console.log(e);//被react封装的event
+		console.log(e.nativeEvent);//原本的event
 	}
 	render(){
 		return (<div>
+			<button onClick={this.countNum}>count</button>
+			<p>{this.state.num}</p>
 			<SubMessage messages={this.state.messages}/>
 		</div>);
 	}
