@@ -9,40 +9,17 @@ class Hello extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			isVisible:true,
-			titleMessage:'世界你好！',
-			curTime:new Date()
+			messages:[
+				'你好！',
+				'谢谢！',
+				'再见！'
+			],
 		};
-		this.myClick = this.myClick.bind(this);
-	}
-	componentDidMount(){
-		this.timerId = setInterval(()=>{
-			this.tick();
-		},1000);
-	}
-	componentWillMount(){
-		clearInterval(this.timerId);
 	}
 	render(){
-		let xxx = {display:this.state.isVisible?'block':'none'};
 		return (<div>
-			<h1>{this.state.titleMessage}</h1>
-			<button onClick={this.myClick} type="button">toggle</button>
-			<h2 style={xxx}>It is {this.state.curTime.toLocaleTimeString()}.</h2>
-			<SubMessage abc="a"/>
-			<SubMessage abc="b"/>
-			<SubMessage abc="c"/>
+			<SubMessage messages={this.state.messages}/>
 		</div>);
-	}
-	tick(){
-		this.setState({
-			curTime:new Date()
-		});
-	}
-	myClick(){
-		this.setState({
-			isVisible:!this.state.isVisible
-		});
 	}
 };
 
