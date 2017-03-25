@@ -10,6 +10,6 @@ class Footer extends React.Component{
 
 export default class SubMessage extends React.Component{
 	render(){
-		return <div><h2>world</h2><Footer/></div>
+		return <div><h2>{this.props.abc}</h2><Footer/></div>
 	}
 }

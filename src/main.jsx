@@ -10,17 +10,15 @@ class Hello extends React.Component{
 		alert('你刚才点击了我！！');
 	}
 	render(){
-		let submessages = [];
-		for (let i = 0; i < 10; i++) {
-			submessages.push(<SubMessage key={i}/>);
-		}
 		return (<div>
-			<h1 onClick={this.clickMe}>Hello</h1>
-			{submessages}
+			<h1 onClick={this.clickMe}>{this.props.name+this.props.class}</h1>
+			<SubMessage abc="a"/>
+			<SubMessage abc="b"/>
+			<SubMessage abc="c"/>
 		</div>);
 	}
 };
 
-ReactDOM.render(<Hello/>,document.getElementById('app'),()=>{
+ReactDOM.render(<Hello name="xxx" class="yyy"/>,document.getElementById('app'),()=>{
 	console.log('渲染完成了！');
 });
