@@ -19,10 +19,10 @@ export default class SubMessage extends React.Component{
 		let messages = this.props.messages.map((item)=>{
 			return <p key={item}>{item}</p>
 		});
-		return <div><h2>{messages}</h2><Footer/></div>
+		return <div><h2 onClick={this.props.supfn}>{messages}</h2><Footer/></div>
 	}
 }
-SubMessage.defaultProps = {messages: ['默认值']};
+SubMessage.defaultProps = {messages: ['点击调用supfn']};
 SubMessage.propTypes = {
 	messages:React.PropTypes.array.isRequired,
 };

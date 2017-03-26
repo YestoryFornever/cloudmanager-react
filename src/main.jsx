@@ -36,6 +36,9 @@ class Hello extends React.Component{
 			radioValue:e.target.value
 		});
 	}
+	supfn(){
+		console.info('...super info');
+	}
 	handleCheckbox(e){
 		let curCheckboxValues = this.state.checkboxValue.slice();
 		if(!curCheckboxValues.includes(e.target.value)){
@@ -49,7 +52,7 @@ class Hello extends React.Component{
 	}
 	render(){
 		return (<div>
-			<SubMessage ref='refSubmsg' messages={this.state.messages}/>
+			<SubMessage ref='refSubmsg' supfn={this.supfn} messages={this.state.messages}/>
 			<form onSubmit={this.handleSubmit}>
 				<input ref='refInput' defaultValue={this.state.inputValue}/><br/>
 				<select ref='refSelect' defaultValue={this.state.selectValue}>
