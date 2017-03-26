@@ -12,6 +12,9 @@ export default class SubMessage extends React.Component{
 	componentWillReceiveProps(props) {
 		// debugger;
 	}
+	subfn(){
+		console.info('...info');
+	}
 	render(){
 		let messages = this.props.messages.map((item)=>{
 			return <p key={item}>{item}</p>

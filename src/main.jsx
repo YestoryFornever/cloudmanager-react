@@ -29,6 +29,7 @@ class Hello extends React.Component{
 			checkbox:this.state.checkboxValue,
 			textarea:this.refs['refTextarea'].value,
 		});
+		this.refs['refSubmsg'].subfn();
 	}
 	handleRadio(e){
 		this.setState({
@@ -48,7 +49,7 @@ class Hello extends React.Component{
 	}
 	render(){
 		return (<div>
-			<SubMessage messages={this.state.messages}/>
+			<SubMessage ref='refSubmsg' messages={this.state.messages}/>
 			<form onSubmit={this.handleSubmit}>
 				<input ref='refInput' defaultValue={this.state.inputValue}/><br/>
 				<select ref='refSelect' defaultValue={this.state.selectValue}>
