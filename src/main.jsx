@@ -54,6 +54,7 @@ class Hello extends React.Component{
 		return (<div>
 			<SubMessage ref='refSubmsg' supfn={this.supfn} messages={this.state.messages}/>
 			<form onSubmit={this.handleSubmit}>
+				新文本框：<input ref={(comp)=>{ReactDOM.findDOMNode(comp).focus()}} defaultValue='1'/>
 				<input ref='refInput' defaultValue={this.state.inputValue}/><br/>
 				<select ref='refSelect' defaultValue={this.state.selectValue}>
 					<option defaultValue='1'>one</option>
