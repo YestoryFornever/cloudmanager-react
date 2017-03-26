@@ -17,6 +17,7 @@ class Hello extends React.Component{
 			countNum:0
 		};
 		console.log('init');
+		this.update = this.update.bind(this);
 	}
 	componentWillMount(){
 		console.log('willmount');
@@ -36,10 +37,28 @@ class Hello extends React.Component{
 	kill(){
 		ReactDOM.unmountComponentAtNode(document.getElementById('app'));
 	}
+	update(){
+		this.setState({
+			countNum:9999
+		});
+		clearInterval(this.xxx);
+	}
+	shouldComponentUpdate(){
+		console.log('shouldComponentUpdate');
+		let bool = this.state.countNum%2===0?true:false;
+		return bool;
+	}
+	componentWillUpdate(){
+		console.log('componentWillUpdate');
+	}
+	componentDidUpdate(){
+		console.log('componentDidUpdate');
+	}
 	render(){
 		return (<div>
-			{this.state.countNum}
-			<button onClick={this.kill}>test</button>
+			{this.state.countNum}<br/>
+			<button onClick={this.kill}>kill</button>
+			<button onClick={this.update}>update</button>
 			<SubMessage ref='refSubmsg'/>
 		</div>);
 	}
