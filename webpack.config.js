@@ -38,6 +38,14 @@ module.exports = {
 				loader:'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!less-loader',
 				include: path.resolve(__dirname, 'src')//白名单
 			},
+			{
+				test:/\.json$/,
+				loader:'json-loader',
+			},
+			{
+				test:/\.(png|jpg|woff|woff2)$/,
+				loader:'url-loader',
+			},
 		]
 	},
 	plugins:[

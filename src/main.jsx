@@ -3,51 +3,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
-import SubMessage from './component';
+import imageJson from './data/images.json';
+
+(function(imageArr) {
+	for(let i=0,j=imageArr.length;i<j;i++){
+		let single = imageArr[i];
+		single.imageURL = require('./images/'+single.fileName);
+		imageArr[i] = single;
+	}
+})(imageJson);
 
 class Hello extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = {
-			inputValue:'input value...',
-			selectValue:'1',
-			radioValue:'',
-			checkboxValue:[],
-			textareaValue:'textarea value...',
-			countNum:0
-		};
-		console.log('init');
-		this.update = this.update.bind(this);
 	}
-	componentWillMount(){
-		console.log('willmount');
-	}
-	componentDidMount(){
-		console.log('didmount');
-		this.xxx = setInterval(()=>{
-			this.setState({
-				countNum:this.state.countNum+1
-			});
-		},1000);
-	}
-	componentWillUnmount(){
-		console.log('willunmount');
-		clearInterval(this.xxx);
-	}
-	kill(){
-		ReactDOM.unmountComponentAtNode(document.getElementById('app'));
-	}
-	update(){
-		this.setState({
-			countNum:9999
-		});
-		clearInterval(this.xxx);
-	}
-	shouldComponentUpdate(){
-		console.log('shouldComponentUpdate');
-		let bool = this.state.countNum%2===0?true:false;
-		return bool;
-	}
+	componentWillMount(){}
+	componentDidMount(){}
+	componentWillUnmount(){}
+	shouldComponentUpdate(){}
 	componentWillUpdate(){
 		console.log('componentWillUpdate');
 	}
@@ -55,12 +28,12 @@ class Hello extends React.Component{
 		console.log('componentDidUpdate');
 	}
 	render(){
-		return (<div>
-			{this.state.countNum}<br/>
-			<button onClick={this.kill}>kill</button>
-			<button onClick={this.update}>update</button>
-			<SubMessage ref='refSubmsg'/>
-		</div>);
+		return (
+			<section className="stage">
+				<section className="img-sec"></section>
+				<nav className="ctrl-nav"></nav>
+			</section>
+		);
 	}
 };
 
