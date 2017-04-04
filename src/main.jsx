@@ -5,12 +5,12 @@ import $ from 'jquery';
 
 import {createStore} from 'redux';
 
-const reducer = (state=0,action)=>{
+const reducer = (state={num:0},action)=>{
 	switch(action.type){
 		case 'ADD':
-			return ++state;
+			return {num:++state.num};
 		case 'MINUS':
-			return --state;
+			return {num:--state.num};
 		default:
 			return state;
 	}
@@ -29,7 +29,7 @@ const Counter = ({value})=>{//props
 		<div style={{margin:'0 auto',width:'100px'}}>
 			<button type="button" onClick={handleAdd}>add</button>
 			<button type="button" onClick={handleMinus}>minus</button>
-			<h1>{value}</h1>
+			<h1>{value.num}</h1>
 		</div>
 	)
 }
