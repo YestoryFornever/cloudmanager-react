@@ -18,6 +18,12 @@ const reducer = (state={num:0},action)=>{
 
 const store = createStore(reducer);
 
+const actionCreator = (type)=>{
+	return {
+		type:type,
+	}
+};
+
 const Counter = ({value})=>{//props
 	function handleAdd(){
 		store.dispatch(actionCreator('ADD'));
@@ -32,26 +38,18 @@ const Counter = ({value})=>{//props
 			<h1>{value.num}</h1>
 		</div>
 	)
-}
-
-const actionCreator = (type)=>{
-	return {
-		type:type,
-	}
-}
+};
 
 const render = ()=>{
 	ReactDOM.render(
 		<Counter value={store.getState()}></Counter>,
 		document.getElementById('app'),
-		console.log('done!')
+		//console.log('done!')
 	);
-}
-
-store.subscribe(render);
-
+};
 render();
 
+store.subscribe(render);
 
 /*import AddTodo from './containers/add-todo';
 import VisibleTodoList from './containers/visible-todo-list';
