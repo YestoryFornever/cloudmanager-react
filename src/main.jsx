@@ -6,13 +6,38 @@ import $ from 'jquery';
 import {createStore} from 'redux';
 
 const reducer = (state=0,action)=>{
-	return state;
+	switch(action.type){
+		case 'ADD':
+			return ++state;
+		case 'MINUS':
+			return --state;
+		default:
+			return state;
+	}
 };
 
 const store = createStore(reducer);
 
-const Counter = ({value})=>{
-	return (<h1>{value}</h1>)
+const Counter = ({value})=>{//props
+	function handleAdd(){
+		store.dispatch(actionCreator('ADD'));
+	}
+	function handleMinus(){
+		store.dispatch(actionCreator('MINUS'));
+	}
+	return (
+		<div style={{margin:'0 auto',width:'100px'}}>
+			<button type="button" onClick={handleAdd}>add</button>
+			<button type="button" onClick={handleMinus}>minus</button>
+			<h1>{value}</h1>
+		</div>
+	)
+}
+
+const actionCreator = (type)=>{
+	return {
+		type:type,
+	}
 }
 
 const render = ()=>{
