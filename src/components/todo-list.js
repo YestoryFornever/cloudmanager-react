@@ -1,6 +1,6 @@
 import Todo from './todo';
 
-export default const Todolist = ({todos,onTodoClick})=>{
+/*export default const Todolist = ({todos,onTodoClick})=>{
 	<ul>
 		{
 			todo.map(todo=>{
@@ -12,4 +12,4 @@ export default const Todolist = ({todos,onTodoClick})=>{
 			})
 		}
 	</ul>
-};
+};*/
