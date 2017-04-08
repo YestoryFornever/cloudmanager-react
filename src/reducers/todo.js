@@ -18,7 +18,7 @@ const todo = (state,action)=>{
 	}
 }
 
-export default const todos = (state,action)=>{
+export const todos = (state,action)=>{
 	switch(action.type){
 		case 'ADD_TODO':
 			return [
