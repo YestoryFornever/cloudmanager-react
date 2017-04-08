@@ -1,8 +1,3 @@
-/*import React from 'react';
-import Footer from './footer'
-import AddTodo from '../containers/add-todo'
-import VisibleTodoList from '../containers/visible-todo-list'*/
-
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions'
