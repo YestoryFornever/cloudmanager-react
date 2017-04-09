@@ -23,7 +23,7 @@ export default class AddTodo extends Component {
 }
 
 /**
- * 也可以直接使用connect封装为container组件
+ * 也可以直接使用connect封装为container组件(直接调用dispatch)
  * 此时App父组件中无需使用onAddClick方法
  */
 /*let AddTodo = ({dispatch})=>{//{dispatch,onAddClick}
