@@ -19,13 +19,13 @@ export default class Footer extends Component {
 	render() {
 		return (
 			<p>
-				Show:
+				展示:
 				{' '}
-				{this.renderFilter('SHOW_ALL', 'All')}
+				{this.renderFilter('SHOW_ALL', '全部')}
 				{', '}
-				{this.renderFilter('SHOW_COMPLETED', 'Completed')}
+				{this.renderFilter('SHOW_COMPLETED', '已完成')}
 				{', '}
-				{this.renderFilter('SHOW_ACTIVE', 'Active')}
+				{this.renderFilter('SHOW_ACTIVE', '待完成')}
 				.
 			</p>
 		)
