@@ -12,23 +12,18 @@ class App extends Component {
 	}
 	render() {
 		// Injected by connect() call:
-		const { dispatch, visibleTodos, visibilityFilter } = this.props
+		const { visibleTodos, visibilityFilter, onAddClick, onTodoClick, onFilterChange } = this.props
 		return (
 			<div>
 				<AddTodo
-					onAddClick={text =>
-						dispatch(addTodo(text))
-					} />
+					onAddClick={onAddClick} />
 				<TodoList
 					todos={visibleTodos}
-					onTodoClick={index =>
-						dispatch(toggleTodo(index))
-					} />
+					onTodoClick={onTodoClick}
+					/>
 				<Footer
 					filter={visibilityFilter}
-					onFilterChange={nextFilter =>
-						dispatch(setVisibilityFilter(nextFilter))
-					} />
+					onFilterChange={onFilterChange} />
 			</div>
 		)
 	}
@@ -54,5 +49,22 @@ function select(state) {
 	}
 }
 
+function dispatchProps(dispatch){
+	return {
+		onAddClick:(text) =>{
+			dispatch(addTodo(text))
+		},
+		onTodoClick:(index)=>{
+			dispatch(toggleTodo(index))
+		},
+		onFilterChange:(nextFilter) =>{
+			dispatch(setVisibilityFilter(nextFilter))
+		}
+	}
+}
+
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-export default connect(select/*state->props,dispatch->props*/)(App)
+export default connect(
+	select,/*state->props,dispatch->props*/
+	dispatchProps/*state->props,dispatch->props*/
+)(App);
