@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions'
+import { addTodo, toggleTodo, setVisibilityFilter, VisibilityFilters } from '../actions'
 import AddTodo from '../components/add-todo'
 import TodoList from '../components/todo-list'
 import Footer from '../components/footer'
@@ -18,7 +18,7 @@ class App extends Component {
 				<TodoList
 					todos={visibleTodos}
 					onTodoClick={index =>
-						dispatch(completeTodo(index))
+						dispatch(toggleTodo(index))
 					} />
 				<Footer
 					filter={visibilityFilter}
