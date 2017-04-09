@@ -6,10 +6,10 @@ import TodoList from '../components/todo-list'
 import Footer from '../components/footer'
 
 class App extends Component {
-	constructor(props){
+	/*constructor(props){
 		super();
 		console.log(props);//即根组件Provider中的store
-	}
+	}*/
 	render() {
 		// Injected by connect() call:
 		const { visibleTodos, visibilityFilter, onAddClick, onTodoClick, onFilterChange } = this.props
