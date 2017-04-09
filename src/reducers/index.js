@@ -8,3 +8,10 @@ const todoApp = combineReducers({
 })
 
 export default todoApp
+
+/*export default function todoApp(state={},action){//不使用combineReducers的写法
+	return {
+		visibilityFilter:visibilityFilter(state.visibilityFilter,action),
+		todos:todos(state.todos,action)
+	}
+}*/

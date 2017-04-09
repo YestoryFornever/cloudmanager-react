@@ -1,7 +1,7 @@
-import './index.less';
-import $ from 'jquery';
-import React from 'react';
-import ReactDOM,{ render } from 'react-dom';
+import './index.less'
+import $ from 'jquery'
+import React from 'react'
+import ReactDOM,{ render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
