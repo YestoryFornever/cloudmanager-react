@@ -1,33 +1,6 @@
-import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addTodo, toggleTodo, setVisibilityFilter, VisibilityFilters } from '../actions'
-import AddTodo from '../components/add-todo'
-import TodoList from '../components/todo-list'
-import Footer from '../components/footer'
-
-class App extends Component {
-	/*constructor(props){
-		super();
-		console.log(props);//即根组件Provider中的store
-	}*/
-	render() {
-		// Injected by connect() call:
-		const { visibleTodos, visibilityFilter, onAddClick, onTodoClick, onFilterChange } = this.props
-		return (
-			<div>
-				<AddTodo
-					onAddClick={onAddClick} />
-				<TodoList
-					todos={visibleTodos}
-					onTodoClick={onTodoClick}
-					/>
-				<Footer
-					filter={visibilityFilter}
-					onFilterChange={onFilterChange} />
-			</div>
-		)
-	}
-}
+import App from '../components/app'
 
 function selectTodos(todos, filter) {
 	switch (filter) {
