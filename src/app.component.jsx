@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-import Login from './login/login.container';
-import Home from './home/home.container';
-import Error from './error/error.container';
+import Login from './components/login/login.container';
+import Home from './components/home/home.container';
+import Error from './components/error/error.container';
 
 const App = ({}) => {
 	return (
