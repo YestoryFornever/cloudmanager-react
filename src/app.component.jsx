@@ -10,12 +10,6 @@ const App = ({}) => {
 		<div>
 			<BrowserRouter>
 				<div>
-					<ul>
-						<li><Link to="/">Login</Link></li>
-						<li><Link to="/home">Home</Link></li>
-						<li><Link to="/error">Error</Link></li>
-					</ul>
-					<hr/>
 					<Route exact path="/" component={Login}/>
 					<Route path="/home" component={Home}/>
 					<Route path="/error" component={Error}/>
@@ -25,3 +19,10 @@ const App = ({}) => {
 	)
 };
 export default App;
+
+/*<ul>
+	<li><Link to="/">Login</Link></li>
+	<li><Link to="/home">Home</Link></li>
+	<li><Link to="/error">Error</Link></li>
+</ul>
+<hr/>*/

@@ -4,7 +4,8 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 const Login = ({}) => {
 	return (
 		<div>
-			Login
+			<h3>login</h3>
+			<button><Link to="/home">登录</Link></button>
 		</div>
 	)
 };
