@@ -1,0 +1,10 @@
+import React, { Component, PropTypes } from 'react';
+
+const Hello = () =>{
+	return(
+		<div>
+			<p>hello</p>
+		</div>
+	);
+}
+export default Hello;

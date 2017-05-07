@@ -1,6 +1,6 @@
-import { connect } from 'react-redux'
-import { addTodo, toggleTodo, setVisibilityFilter, VisibilityFilters } from '../actions'
-import App from '../components/app'
+import { connect } from 'react-redux';
+import { addTodo,toggleTodo, setVisibilityFilter, VisibilityFilters } from '../actions';
+import App from '../components/app';
 
 function selectTodos(todos, filter) {
 	switch (filter) {
@@ -27,7 +27,7 @@ function dispatchProps(dispatch){
 		onAddClick:(text) =>{
 			dispatch(addTodo(text))
 		},
-		onTodoClick:(index)=>{
+		onTodoClick:(index) =>{
 			dispatch(toggleTodo(index))
 		},
 		onFilterChange:(nextFilter) =>{

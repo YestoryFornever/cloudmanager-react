@@ -44,4 +44,3 @@ export default class AddTodo extends Component {
 AddTodo = connect()(AddTodo);
 
 export default AddTodo;*/
-
