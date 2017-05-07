@@ -1,6 +1,6 @@
 import { ADD_TODO, TOGGLE_TODO } from '../actions';
 
-export function todos(state = [], action){
+export function error(state = [], action){
 	switch (action.type) {
 		case ADD_TODO:
 			return [

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import visibilityFilter from './visibility-filter.reducer';
-import { todos } from './todos.reducer';
+import home from './home/home.reducer';
+import { error } from './error/error.reducer';
 
 const fnReducers = combineReducers({
-	visibilityFilter,
-	todos
+	home,
+	error
 })
 
 export default fnReducers
