@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Login from './components/login/login.container';
 import Home from './components/home/home.container';
@@ -8,13 +8,13 @@ import Error from './components/error/error.container';
 const App = ({}) => {
 	return (
 		<div>
-			<BrowserRouter>
+			<Router>
 				<div>
 					<Route exact path="/" component={Login}/>
 					<Route path="/home" component={Home}/>
 					<Route path="/error" component={Error}/>
 				</div>
-			</BrowserRouter>
+			</Router>
 		</div>
 	)
 };

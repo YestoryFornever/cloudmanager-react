@@ -17,6 +17,9 @@ const Login = ({}) => {
 					<button>
 						<Link to="/home">登录</Link>
 					</button>
+					<button>
+						<Link to="/error">错误</Link>
+					</button>
 				</section>
 			</main>
 		</div>
