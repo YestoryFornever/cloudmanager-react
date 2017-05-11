@@ -1,6 +1,6 @@
 import './login.less';
 import React, { Component, PropTypes } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 // <div style={{width:'100px',height:'100px'}}></div>
 const Login = ({}) => {
@@ -14,7 +14,9 @@ const Login = ({}) => {
 					<img src={require("./images/webfirewall.jpg")}/>
 				</section>
 				<section className="login-dialog">
-					<button><Link to="/home">登录</Link></button>
+					<button>
+						<Link to="/home">登录</Link>
+					</button>
 				</section>
 			</main>
 		</div>
