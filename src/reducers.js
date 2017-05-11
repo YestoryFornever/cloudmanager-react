@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import home from './home/home.reducer';
-import { error } from './error/error.reducer';
+import home from './components/home/home.reducer';
+import { error } from './components/error/error.reducer';
 
 const fnReducers = combineReducers({
 	home,
