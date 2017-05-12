@@ -1,17 +1,8 @@
 import { combineReducers } from 'redux';
-import home from './components/home/home.reducer';
-import { error } from './components/error/error.reducer';
+import login from './components/login/login.reducer';
 
 const fnReducers = combineReducers({
-	home,
-	error
+	login
 })
 
-export default fnReducers
-
-/*export default function todoApp(state={},action){//不使用combineReducers的写法
-	return {
-		visibilityFilter:visibilityFilter(state.visibilityFilter,action),
-		todos:todos(state.todos,action)
-	}
-}*/
+export default fnReducers;

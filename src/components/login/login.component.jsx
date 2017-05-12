@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 // <div style={{width:'100px',height:'100px'}}></div>
-const Login = ({}) => {
+const Login = ({ onLogin, onLogout, authenticated}) => {
 	return (
 		<div>
 			<header>
@@ -14,9 +14,11 @@ const Login = ({}) => {
 					<img src={require("./images/webfirewall.jpg")}/>
 				</section>
 				<section className="login-dialog">
-					<button>
-						<Link to="/home">登录</Link>
-					</button>
+					<button onClick={e=>{
+						e.preventDefault();
+						onLogin(true);}
+					}>登录</button>
+					{authenticated&&(<span>asdf</span>)}
 					<button>
 						<Link to="/error">错误</Link>
 					</button>
