@@ -16,3 +16,8 @@ render(
 	</Provider>,
 	document.getElementById('app')
 );
+
+// redux-thunk - 实现异步action （ajax）
+// redux-gen - 生成器
+// react-router-redux - 路由
+// react-redux-form - 表单提交
