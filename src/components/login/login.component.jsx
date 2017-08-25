@@ -11,7 +11,7 @@ const Login = ({ onLogin, onLogout, authenticated}) => {
 			</header>
 			<main>
 				<section className="login-img">
-					<img src={require("./images/webfirewall.jpg")}/>
+					{/* <img src={require("./images/webfirewall.jpg")}/> */}
 				</section>
 				<section className="login-dialog">
 					<button onClick={e=>{
