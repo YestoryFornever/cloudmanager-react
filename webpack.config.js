@@ -5,51 +5,62 @@ const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const HotModuleReplacementPlugin = webpack.HotModuleReplacementPlugin;
 const ProvidePlugin = webpack.ProvidePlugin;
 
-const node_modules_path = __dirname+'/node_modules/';
+const node_modules_path = __dirname + '/node_modules/';
 // console.log(process.env.NODE_ENV);
 
 module.exports = {
-	entry:{
-		bundle:'./src/main.jsx'
+	entry: {
+		bundle: './src/main.jsx'
 	},//入口文件
 	resolve: {
 		extensions: ['.js', '.jsx']
 	},
-	output:{
-		path:path.resolve(__dirname,'dist'),//输出文件目录（__dirname指的是当前目录）
-		filename:'./[name].js',//打包后文件名对应entry中的key名:e.g. bundle
+	output: {
+		path: path.resolve(__dirname, 'dist'),//输出文件目录（__dirname指的是当前目录）
+		filename: './[name].js',//打包后文件名对应entry中的key名:e.g. bundle
 		publicPath: 'http://localhost:9999/',
 	},
-	module:{
-		loaders:[
+	module: {
+		rules: [
 			{
-				test: path.join(node_modules_path,'jquery'),
-				loader: 'expose-loader?jQuery!expose-loader?$'
+				test: path.join(node_modules_path, 'jquery'),
+				use: [
+					'expose-loader?jQuery',
+					'expose-loader?$'
+				]
 			},
 			{
 				test: /\.js[x]?$/,
-				loader: 'babel-loader',
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['es2015', 'react']
+					}
+				},
 				exclude: /node_modules/,//黑名单
-				query: {
-					presets: ['es2015', 'react']
-				}
 			},
 			{
-				test:/\.less$/,
-				loader:'style-loader!css-loader!postcss-loader?{browsers:["last 2 version"]}!less-loader',
+				test: /\.less$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							browsers: ["last 2 version"]
+						}
+					},
+					'less-loader'
+				],
 				include: path.resolve(__dirname, 'src')//白名单
 			},
 			{
-				test:/\.json$/,
-				loader:'json-loader',
-			},
-			{
-				test:/\.(png|jpg|woff|woff2)$/,
-				loader:'url-loader',
+				test: /\.(png|jpg|woff|woff2)$/,
+				use: 'url-loader',
 			},
 		]
 	},
-	plugins:[
+	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'default-title',
 			template: 'src/index.html',
@@ -57,7 +68,7 @@ module.exports = {
 			hash: true
 		}),
 	],
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'cheap-module-eval-source-map',//生成sourcemap文件,便于调试
 	devServer: {
 		historyApiFallback: true,
 		stats: 'minimal'
