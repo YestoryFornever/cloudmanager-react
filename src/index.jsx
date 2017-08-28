@@ -7,7 +7,7 @@ import $ from 'jquery'
  * React 
  */
 import React, { Component, PropTypes } from 'react'
-import ReactDOM,{ render } from 'react-dom'
+import ReactDOM, { render } from 'react-dom'
 /*
  * Redux
  */
@@ -17,7 +17,7 @@ import { Provider } from 'react-redux'
  * Router
  */
 import { history } from './history';
-import { BrowserRouter as Router1, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router1, Route, Link, Redirect } from 'react-router-dom'
 import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-redux'
 /*
  * Components
@@ -41,9 +41,9 @@ const DevTools = createDevTools(
 import fnReducers from './reducers';
 const middleware = routerMiddleware(history);
 let store = createStore(
-	fnReducers, 
+	fnReducers,
 	compose(
-		applyMiddleware(middleware), 
+		applyMiddleware(middleware),
 		DevTools.instrument()
 	)
 );
@@ -59,7 +59,10 @@ render(
 					</ul>
 					<hr />
 					<Route exact path="/" component={Login} />
-					<Route path="/home" component={Home} />
+					{/* <Route path="/home" component={Home} /> */}
+					<Route path="/home" render={() => (
+						false? ( <Home/> ):( <Redirect to="/" /> )
+					)} />
 					<Route path="/error" component={Error} />
 				</div>
 			</Router>

@@ -9,15 +9,12 @@ const Login = ({ onLogin, onLogout, authenticated}) => {
 				<h3>login</h3>
 			</header>
 			<main>
-				<section className="login-img">
-					{/* <img src={require("./images/webfirewall.jpg")}/> */}
-				</section>
 				<section className="login-dialog">
 					<button onClick={e=>{
 						e.preventDefault();
 						onLogin(true);}
 					}>登录</button>
-					{authenticated&&(<span>asdf</span>)}
+					{ authenticated && ( <span>asdf</span> ) }
 					<button>
 						<Link to="/error">错误</Link>
 					</button>
