@@ -2,21 +2,18 @@ import { connect } from 'react-redux'
 import { setAuthenticate } from '../../actions'
 import { history } from '../../history'
 import Login from './login.component'
-const _s = (state)=>{
+const _s = (state) => {
 	// console.log(state);
 	return {
-		authenticated:state.login
+		authenticated: state.login
 	}
 }
-const _d = (dispatch)=>{
+const _d = (dispatch) => {
 	return {
 		onLogin: (auth) => {
 			dispatch(setAuthenticate(auth));
 			history.push('/home');
-		},
-		onLogout:(auth)=>{
-			dispatch(setAuthenticate(auth));
 		}
 	}
 }
-export default connect(_s,_d)(Login);
+export default connect(_s, _d)(Login);

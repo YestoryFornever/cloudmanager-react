@@ -60,9 +60,12 @@ render(
 					<hr />
 					<Route exact path="/" component={Login} />
 					{/* <Route path="/home" component={Home} /> */}
-					<Route path="/home" render={() => (
-						false? ( <Home/> ):( <Redirect to="/" /> )
-					)} />
+					<Route path="/home" render={(props) => {//此处必须把父级组件的属性传入子级组件
+							return store.getState().login.auth 
+								? ( <Home {...props}/> ) 
+								: ( <Redirect to="/" /> )
+						}
+					} />
 					<Route path="/error" component={Error} />
 				</div>
 			</Router>

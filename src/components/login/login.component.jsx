@@ -2,7 +2,7 @@ import './login.less';
 import React, { Component, PropTypes } from 'react';
 import { Route, Link } from 'react-router-dom';
 
-const Login = ({ onLogin, onLogout, authenticated}) => {
+const Login = ({ onLogin, authenticated }) => {
 	return (
 		<div>
 			<header>
