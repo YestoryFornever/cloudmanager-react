@@ -10,7 +10,7 @@ const node_modules_path = __dirname + '/node_modules/';
 
 module.exports = {
 	entry: {
-		bundle: './src/main.jsx'
+		bundle: './src/index.jsx'
 	},//入口文件
 	resolve: {
 		extensions: ['.js', '.jsx']
