@@ -16,7 +16,7 @@ import { Provider } from 'react-redux'
 /*
  * Router
  */
-import { createBrowserHistory } from 'history'
+import { history } from './history';
 import { BrowserRouter as Router1, Route, Link } from 'react-router-dom'
 import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-redux'
 /*
@@ -38,8 +38,6 @@ const DevTools = createDevTools(
 	</DockMonitor>
 )
 
-const history = createBrowserHistory();
-
 import fnReducers from './reducers';
 const middleware = routerMiddleware(history);
 let store = createStore(
@@ -49,7 +47,6 @@ let store = createStore(
 		DevTools.instrument()
 	)
 );
-
 render(
 	<Provider store={store}>
 		<div className="Provider">

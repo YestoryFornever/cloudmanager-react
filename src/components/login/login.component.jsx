@@ -2,7 +2,6 @@ import './login.less';
 import React, { Component, PropTypes } from 'react';
 import { Route, Link } from 'react-router-dom';
 
-// <div style={{width:'100px',height:'100px'}}></div>
 const Login = ({ onLogin, onLogout, authenticated}) => {
 	return (
 		<div>

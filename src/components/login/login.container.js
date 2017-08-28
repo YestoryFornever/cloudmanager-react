@@ -1,6 +1,7 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { setAuthenticate } from '../../actions'
-import Login from './login.component';
+import { history } from '../../history'
+import Login from './login.component'
 const _s = (state)=>{
 	console.log(state);
 	return {
@@ -9,7 +10,8 @@ const _s = (state)=>{
 }
 const _d = (dispatch)=>{
 	return {
-		onLogin:(auth)=>{
+		onLogin: (auth) => {
+			history.push("home");
 			dispatch(setAuthenticate(auth));
 		},
 		onLogout:(auth)=>{
