@@ -2,11 +2,17 @@ import './index.less';
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM,{ render } from 'react-dom';
-import { createStore } from 'redux';
+
+import { createBrowserHistory } from 'history';
+import { routerMiddleware } from 'react-router-redux';
+
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 import fnReducers from './reducers';
-let store = createStore(fnReducers);
+const history = createBrowserHistory()
+const middleware = routerMiddleware(history);
+let store = createStore(fnReducers, applyMiddleware(middleware));
 
 import App from './app.component';//<App />
 
