@@ -6,9 +6,9 @@ export const AUTHENTICATED = 'AUTHENTICATED';
 /*
  * action 创建函数
  */
-export function setAuthenticate(auth){
-	return {
+export const setAuthenticate = (auth)=>(
+	{
 		type:AUTHENTICATED,
 		auth
 	}
-}
+);
