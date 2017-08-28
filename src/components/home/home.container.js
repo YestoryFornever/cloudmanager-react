@@ -5,7 +5,7 @@ import Home from './home.component'
 const _s = (state) => {
     // console.log(state);
     return {
-        authenticated: state.login
+        authenticated: state.login.auth
     }
 }
 const _d = (dispatch) => {
