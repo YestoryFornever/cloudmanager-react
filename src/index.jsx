@@ -1,36 +1,54 @@
-import './index.less';
+import './index.less'
 /* 
  * jquery
  */
-import $ from 'jquery';
+import $ from 'jquery'
 /*
  * React 
  */
-import React, { Component, PropTypes } from 'react';
-import ReactDOM,{ render } from 'react-dom';
+import React, { Component, PropTypes } from 'react'
+import ReactDOM,{ render } from 'react-dom'
 /*
  * Redux
  */
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux'
+import { Provider } from 'react-redux'
 /*
  * Router
  */
-import { createBrowserHistory } from 'history';
-import { BrowserRouter as Router1, Route, Link } from 'react-router-dom';
-import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-redux';
+import { createBrowserHistory } from 'history'
+import { BrowserRouter as Router1, Route, Link } from 'react-router-dom'
+import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-redux'
 /*
  * Components
  */
-import Login from './components/login/login.container';
-import Home from './components/home/home.container';
-import Error from './components/error/error.container';
+import Login from './components/login/login.container'
+import Home from './components/home/home.container'
+import Error from './components/error/error.container'
+/* 
+ * DevTools
+ */
+import { createDevTools } from 'redux-devtools'
+import LogMonitor from 'redux-devtools-log-monitor'
+import DockMonitor from 'redux-devtools-dock-monitor'
+
+const DevTools = createDevTools(
+	<DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
+		<LogMonitor theme="tomorrow" preserveScrollTop={false} />
+	</DockMonitor>
+)
 
 const history = createBrowserHistory();
 
 import fnReducers from './reducers';
 const middleware = routerMiddleware(history);
-let store = createStore(fnReducers, applyMiddleware(middleware));
+let store = createStore(
+	fnReducers, 
+	compose(
+		applyMiddleware(middleware), 
+		DevTools.instrument()
+	)
+);
 
 render(
 	<Provider store={store}>
@@ -48,6 +66,7 @@ render(
 					<Route path="/error" component={Error} />
 				</div>
 			</Router>
+			<DevTools />
 		</div>
 	</Provider>,
 	document.getElementById('app')
