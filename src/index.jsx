@@ -32,6 +32,8 @@ import { createDevTools } from 'redux-devtools'
 import LogMonitor from 'redux-devtools-log-monitor'
 import DockMonitor from 'redux-devtools-dock-monitor'
 
+import thunk from 'redux-thunk'
+
 const DevTools = createDevTools(
 	<DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
 		<LogMonitor theme="tomorrow" preserveScrollTop={false} />
@@ -39,11 +41,11 @@ const DevTools = createDevTools(
 )
 
 import fnReducers from './reducers';
-const middleware = routerMiddleware(history);
+const middlewares = [routerMiddleware(history),thunk];
 let store = createStore(
 	fnReducers,
 	compose(
-		applyMiddleware(middleware),
+		applyMiddleware(...middlewares),
 		DevTools.instrument()
 	)
 );
