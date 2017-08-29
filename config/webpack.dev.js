@@ -19,24 +19,27 @@ const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig({
 	env: ENV
 }).metadata, {
-	host: HOST,
-	port: PORT,
-	ENV: ENV,
-	HMR: HMR
-});
+		host: HOST,
+		port: PORT,
+		ENV: ENV,
+		HMR: HMR
+	});
 
 module.exports = (opt) => {
 	return webpackMerge(
 		commonConfig(),
 		{
 			devtool: 'cheap-module-eval-source-map',//生成sourcemap文件,便于调试 --devtool "xxx"[package.json]
-			//--hot[package.json]
 			devServer: {
 				port: METADATA.port,
 				host: METADATA.host,
 				historyApiFallback: true,
-				stats: 'minimal'
+				stats: 'minimal',
+				hot: true //--hot[package.json]
 			},
+			plugins: [
+				new webpack.HotModuleReplacementPlugin()
+			],
 		}
 	)
 }; 

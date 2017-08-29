@@ -20,7 +20,7 @@ module.exports = (opt) => {
 		output: {
 			path: path.resolve(__dirname, 'dist'),//输出文件目录（__dirname指的是当前目录）
 			filename: './[name].js',//打包后文件名对应entry中的key名:e.g. bundle
-			publicPath: 'http://localhost:9999/',
+			publicPath: 'http://127.0.0.1:9999/',
 		},
 		module: {
 			rules: [
