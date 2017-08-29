@@ -36,7 +36,7 @@ module.exports = (opt) => {
 					use: {
 						loader: 'babel-loader',
 						options: {
-							presets: ['es2015', 'react']
+							presets: ['es2015', 'stage-3', 'react']
 						}
 					},
 					exclude: /node_modules/,//黑名单

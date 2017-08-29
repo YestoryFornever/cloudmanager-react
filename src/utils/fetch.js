@@ -4,7 +4,7 @@ import fetch from 'isomorphic-fetch'
 promise.polyfill();
 
 export const fetchJson = (options) => {
-	options.url = "https://easy-mock.com/mock/59294d8e91470c0ac1fe8a4c/staff" + options.url;
+	options.url = "http://easy-mock.com/mock/59a505e17b7ac306cc2ebc2f/example/" + options.url;
 	const { url, type, data, ...others } = options;
 	let opts = {
 		...others,

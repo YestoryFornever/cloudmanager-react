@@ -30,6 +30,7 @@ module.exports = (opt) => {
 		commonConfig(),
 		{
 			devtool: 'cheap-module-eval-source-map',//生成sourcemap文件,便于调试 --devtool "xxx"[package.json]
+			//--hot[package.json]
 			devServer: {
 				port: METADATA.port,
 				host: METADATA.host,
