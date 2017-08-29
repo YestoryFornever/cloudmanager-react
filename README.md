@@ -1,1 +1,1 @@
-"react-router-redux": "^4.0.8" 可能不需要
+"react-router-redux": "^5.0.0-alpha.6" alpha版本
