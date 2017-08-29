@@ -29,7 +29,7 @@ module.exports = (opt) => {
 	return webpackMerge(
 		commonConfig(),
 		{
-			devtool: 'cheap-module-eval-source-map',//生成sourcemap文件,便于调试
+			devtool: 'cheap-module-eval-source-map',//生成sourcemap文件,便于调试 --devtool "xxx"[package.json]
 			devServer: {
 				port: METADATA.port,
 				host: METADATA.host,
