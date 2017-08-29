@@ -10,14 +10,13 @@ export const TEST = 'TEST';
 export const test = (opts) => (
     (dispatch) => {
         const { data, success, error } = opts;
-        debugger;
         fetchJson({
             type: "GET",
             url: "/test",
             data: data,
             success: req => {
-                console.log(req)
-                debugger;
+                console.log(req);
+                success && success(req);
             },
             error: err => {
                 console.log(err);
