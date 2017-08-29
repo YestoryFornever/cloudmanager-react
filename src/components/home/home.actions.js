@@ -1,4 +1,4 @@
-import { fetchJson } from '../../utils/fetch'
+import { _json } from '../../utils/fetch'
 /*
  * action 类型
  */
@@ -10,7 +10,7 @@ export const TEST = 'TEST';
 export const test = (opts) => (
     (dispatch) => {
         const { data, success, error } = opts;
-        fetchJson({
+        _json({
             type: "GET",
             url: "/test",
             data: data,

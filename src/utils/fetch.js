@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch'
 
 promise.polyfill();
 
-export const fetchJson = (options) => {
+export const _json = (options) => {
 	options.url = "http://easy-mock.com/mock/59a505e17b7ac306cc2ebc2f/example/" + options.url;
 	const { url, type, data, ...others } = options;
 	let opts = {
@@ -14,7 +14,7 @@ export const fetchJson = (options) => {
 			'Content-Type': 'application/json'
 		}
 	}
-	if (['POST', 'PUT'].indexOf(opts.method.toUpperCase()) >= 0) {
+	if (!!~['POST', 'PUT'].indexOf(opts.method.toUpperCase())) {
 		opts.body = JSON.stringify(data)
 	}
 	fetch(url, opts)
@@ -23,14 +23,14 @@ export const fetchJson = (options) => {
 	// .catch(error => errorHandler(error, opts))
 }
 
-export const fetchFormData = (options) => {
+export const _form = (options) => {
 	const { url, type, data, ...others } = options;
 	let opts = {
 		...others,
 		method: type || 'get',
 		credentials: 'include',
 	}
-	if (['POST', 'PUT'].indexOf(opts.method.toUpperCase()) >= 0) {
+	if (!!~['POST', 'PUT'].indexOf(opts.method.toUpperCase())) {
 		opts.body = data
 	}
 	fetch(url, opts)
@@ -39,7 +39,7 @@ export const fetchFormData = (options) => {
 	// .catch(error => errorHandler(error, opts))
 }
 
-function toJson(resp, options) {
+const toJson = (resp, options) => {
 	if (resp.status >= 400) {
 		return errorHandler(null, options, resp.status)
 	}
@@ -47,7 +47,7 @@ function toJson(resp, options) {
 }
 
 // success
-function resHandler(resData, options) {
+const resHandler = (resData, options) => {
 	if (resData.status && resData.status != 200) {
 		return errorHandler(resData.error, options, resData.status);
 	}
@@ -60,7 +60,7 @@ function resHandler(resData, options) {
 }
 
 // failure
-function errorHandler(error, options, status) {
+const errorHandler = (error, options, status) => {
 	options.error && options.error(error);
 	console.log(`网络异常，请稍后重试(${status})`)
 }
