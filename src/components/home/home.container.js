@@ -13,6 +13,9 @@ const _d = (dispatch) => {
         onLogout: (auth) => {
             dispatch(setAuthenticate(auth));
             history.push('/');
+        },
+        test: (n)=>{
+            alert(n);
         }
     }
 }

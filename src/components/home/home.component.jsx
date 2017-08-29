@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-const Home = ({ match, onLogout, authenticated }) => {
+const Home = ({ match, onLogout, authenticated, test }) => {
 	return (
 		<div>
 			Home
@@ -11,6 +11,12 @@ const Home = ({ match, onLogout, authenticated }) => {
 			}
 			}>注销</button>
 			{authenticated && (<span>asdf</span>)}
+			<br />
+			<button onClick={e => {
+				e.preventDefault();
+				test(1);
+			}
+			}>test</button>
 			<h2>二级路由</h2>
 			<ul>
 				<li>
