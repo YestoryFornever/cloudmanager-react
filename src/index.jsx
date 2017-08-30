@@ -71,7 +71,7 @@ render(
 					<Route path="/error" component={Error} />
 				</div>
 			</Router>
-			<DevTools />
+			{/* <DevTools /> */}
 		</div>
 	</Provider>,
 	document.getElementById('app')
